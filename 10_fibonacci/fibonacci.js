@@ -1,11 +1,18 @@
 const fibonacci = function(num) {
-    const fibonacci = [1];
+    const fibonacci = [1, 1];
+    num = parseInt(num);
 
-    for(let i = 1; i < num; i++) {
-        fibonacci.push(fibonacci[i--] + i);
+    if (num < 0) {
+        return "OOPS";
     }
 
-    return fibonacci[fibonacci.pop()];
+
+    for(let i = 2; i < num; i++) {
+        let pointer = i; 
+        fibonacci.push(fibonacci[pointer-1] + fibonacci[pointer-2]);
+    }
+
+    return fibonacci.pop();
 };
 
 // Do not edit below this line
